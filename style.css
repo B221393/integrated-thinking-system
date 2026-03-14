@@ -44,7 +44,7 @@ body {
     z-index: 1;
     width: 90%;
     max-width: 1200px;
-    height: 80vh;
+    min-height: 80vh;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -206,6 +206,109 @@ footer {
     border-top: 1px solid var(--glass-border);
     font-size: 0.8rem;
     color: var(--text-dim);
+}
+
+/* ── Discord Section ──────────────────────────────────────────── */
+
+.discord-section {
+    margin-top: 24px;
+}
+
+.discord-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.discord-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.discord-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.discord-status.connected {
+    color: #00e676;
+}
+
+.discord-status.disconnected {
+    color: #ff5252;
+}
+
+.discord-messages {
+    flex-grow: 1;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    padding: 8px;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+}
+
+.discord-messages::-webkit-scrollbar {
+    width: 4px;
+}
+
+.discord-messages::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.discord-empty {
+    text-align: center;
+    color: var(--text-dim);
+    opacity: 0.6;
+}
+
+.discord-msg {
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.discord-msg .msg-author {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.discord-msg .msg-time {
+    color: var(--text-dim);
+    opacity: 0.5;
+    font-size: 0.75rem;
+    margin-left: 6px;
+}
+
+.discord-input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.discord-input-row input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.discord-input-row input:focus {
+    border-color: var(--accent-color);
+}
+
+.discord-input-row input::placeholder {
+    color: var(--text-dim);
+    opacity: 0.6;
 }
 
 @keyframes fadeIn {
