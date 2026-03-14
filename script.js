@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const res = await fetch('/api/discord/messages');
             if (res.ok) renderMessages(await res.json());
-        } catch { /* server may not be running */ }
+        } catch (err) { console.debug('Message fetch unavailable:', err.message); }
     }
 
     async function fetchStatus() {
@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 statusEl.classList.toggle('connected', data.connected);
                 statusEl.classList.toggle('disconnected', !data.connected);
             }
-        } catch {
+        } catch (err) {
+            console.debug('Status check unavailable:', err.message);
             statusEl.textContent = '● Offline';
             statusEl.classList.add('disconnected');
             statusEl.classList.remove('connected');

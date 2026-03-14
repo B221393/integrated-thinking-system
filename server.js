@@ -80,7 +80,6 @@ app.get('/api/discord/status', (_req, res) => {
     res.json({
         connected: client.isReady(),
         username: client.user?.username ?? null,
-        channelId: process.env.DISCORD_CHANNEL_ID ?? null,
     });
 });
 
